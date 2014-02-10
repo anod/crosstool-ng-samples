@@ -94,21 +94,24 @@ Troubleshooting
 ===============
 
 [Emulator] data partition is small
+```bash
 # emulator -partition-size 1024
+```
 
 [Emulator] KitKat doesn’t resize data partition
 Use emulator from JellyBean
 
 [Compile] No such file or directory
-Toolchain and program needs to be build with -static option
+Toolchain and program needs to be built with -static option
 
 [Compile] FATAL: kernel too old
 The toolchain used to recompile needs to have a version of the kernel headers and C library that will work with this kernel.
 
 Check kernel version:
-127|root@generic_x86:/ # cat /proc/version
+```bash
+127|root@generic_x86:/ cat /proc/version
 Linux version 2.6.29 (vchtchetkine@vc-irv.irv.corp.google.com) (gcc version 4.2.1) #29 PREEMPT Thu Nov 17 06:50:36 PST 2011
-
+```
 
 
 
