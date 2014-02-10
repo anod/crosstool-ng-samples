@@ -40,19 +40,17 @@ Build for emulator x86
 
 ```bash
 # Step 1. Download Crosstool-NG configurations 
-mkdir ~/crosstool-ng-configs
-cd ~/crosstool-ng-configs
-wget -O configs.tar.gz 'TODO'
-tar -zxvf configs.tar.gz
+wget 'https://github.com/anod/crosstool-ng-samples/archive/master.zip'
+unzip master.zip
 
 # Step 2. build toolchains for host x86_64 and target i686
-cd ~/crosstool-ng-configs/host-x86_64-target-i686
+cd ~/crosstool-ng-samples-master/host-x86_64-target-i686
 ct-ng i686-host-linux-gnu
 ct-ng build
 # Result can be found in ~/x-tools/i686-host-linux-gnu
 
 # Step3. build toolchains for host i686 and target
-cd ~/crosstool-ng-configs/host-i686-target-i686
+cd ~/crosstool-ng-samples-master/host-i686-target-i686
 ct-ng i686-target-linux-gnu
 ct-ng build
 # Result can be found in ~/x-tools/i686-target-linux-gnu
