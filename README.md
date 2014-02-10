@@ -14,21 +14,15 @@ Requirements
 
 
 Crosstool-NG configurations
-============
+===========================
 
-+--------+----------+-----------+----------+-------------+--------------+-----------+-----------+
-|  Host  |  Target  | Linux     | binutils | C compiler  | C library    | Static    | Toolchain |
-|        |          | Kernel    | version  | version     | version      | toolchain | type      |
-|        |          | headers   |          |             |              |           |           |
-|        |          | version   |          |             |              |           |           |
-+--------+----------+-----------+----------+-------------+--------------+-----------+-----------+
-| x86_64 | i686     | 2.6.27.62 | 2.20.1a  | gcc 4.6.4   | glibc 2.12.2 | N         | Cross     |
-| i686   | i686     | 2.6.27.62 | 2.20.1a  | gcc 4.6.4   | ulibc 2.12   | Y         | Canadian  |
-| x86_64 | arm      | 3.0.87    | 2.20.1a  | gcc-linaro  | glibc 2.9    | N         | Cross     |
-|        |          |           |          | 4.6-2013.05 |              |           |           |
-| arm    | arm      | 3.0.87    | 2.20.1a  | gcc-linaro  | glibc 2.9    | Y         | Canadian  |
-|        |          |           |          | 4.6-2013.05 |              |           |           |
-+--------+----------+-----------+----------+-------------+--------------+-----------+-----------+
+|  Host  |  Target  | Linux     | binutils | C compiler             | C library    | Static    | Toolchain |
+| ------ | -------- | --------- | -------- | ---------------------- | ------------ | --------- | --------- |
+| x86_64 | i686     | 2.6.27.62 | 2.20.1a  | gcc 4.6.4              | glibc 2.12.2 | N         | Cross     |
+| i686   | i686     | 2.6.27.62 | 2.20.1a  | gcc 4.6.4              | ulibc 2.12   | Y         | Canadian  |
+| x86_64 | arm      | 3.0.87    | 2.20.1a  | gcc-linaro 4.6-2013.05 | glibc 2.9    | N         | Cross     |
+| arm    | arm      | 3.0.87    | 2.20.1a  | gcc-linaro 4.6-2013.05 | glibc 2.9    | Y         | Canadian  |
+
 
  - GMP version (5.0.2) 
  - MPFR version (3.1.2) 
@@ -74,6 +68,7 @@ cd ~/x-tools
 find i686-target-linux-gnu -exec stat -c '%a %n'  {} \;| awk '{ print  "adb shell chmod", $1, "/data/local/"$2; }' > adb_fix_permissions.sh
 chmod a+x adb_fix_permissions.sh
 ./adb_fix_permissions.sh
+```
 
 Build “Hello World” on Emulator
 -------------------------------
@@ -84,7 +79,7 @@ cd /data/local/
 echo -e "#include <stdio.h>\nint main() {\n    printf(\"Hello World.\");\n    return 0;\n}" > helloworld.c
 /data/local/i686-target-linux-gnu/bin/i686-target-linux-gnu-gcc helloworld.c -o helloworld -static
 ./helloworld
-
+```
 
 Build for device
 ----------------
